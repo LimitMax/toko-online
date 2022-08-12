@@ -9,7 +9,7 @@ include 'koneksi.php';
 if(isset($_POST['login'])){
 
   $email = $_POST['email'];
-  $password = $_POST['password'];
+  $password = md5( $_POST['password']);
 
   // Melakukan query pada tabel pelanggan
   $ambil = $koneksi->query("SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password_pelanggan='$password'");
@@ -35,8 +35,6 @@ if(isset($_POST['login'])){
     }
   }
   else{
-    // echo "<script>alert('Gagal login')</script>";
-    // echo "<script>location='login.php';</script>";
     echo "<div class='alert alert-danger'>Login gagal!</div>";
 		echo "<meta http-equiv='refresh' content='1;url=login.php'>";
   }
@@ -46,40 +44,43 @@ if(isset($_POST['login'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Pelanggan</title>
-  <link rel="stylesheet" href="admin/assets/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Pelanggan</title>
+    <link rel="stylesheet" href="admin/assets/css/bootstrap.css">
 </head>
+
 <body>
 
-<?php include 'templates/navbar.php'; ?>
+    <?php include 'templates/navbar.php'; ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Login Pelanggan</h3>
-        </div>
-        <div class="panel-body">
-          <form action="" method="post">
-            <div class="form-group">
-              <label for="">Email</label>
-              <input type="email" class="form-control" name="email">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Login Pelanggan</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <button type="submit" name="login" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="">Password</label>
-              <input type="password" class="form-control" name="password">
-            </div>
-            <button type="submit" name="login" class="btn btn-primary">Login</button>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
-</div>
-  
+
 </body>
+
 </html>

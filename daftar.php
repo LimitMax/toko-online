@@ -7,7 +7,7 @@ if(isset($_POST['daftar'])){
   // Mengambil isian nama, email, password, alamat, telepon
   $nama = $_POST['nama'];
   $email = $_POST['email'];
-  $password = $_POST['password'];
+  $password = md5($_POST['password']);
   $alamat = $_POST['alamat'];
   $telepon = $_POST['telepon'];
 

@@ -6,7 +6,10 @@ $koneksi = new mysqli("localhost", "root", "", "shoponline");
 
 <?php
 if(isset($_POST['login'])){
-	$ambil = $koneksi->query("SELECT * FROM admin WHERE username='$_POST[user]' AND password='$_POST[pass]'");
+    $username = $_POST['user'];
+    $password = md5( $_POST['pass']);
+
+	$ambil = $koneksi->query("SELECT * FROM admin WHERE username='$username' AND password='$password'");
 	$yangcocok = $ambil->num_rows;
 
 	if($yangcocok == 1){
@@ -77,7 +80,7 @@ if(isset($_POST['login'])){
 
                             <button class="btn btn-primary" name="login">Login</button>
                             <hr />
-                            Not register ? <a href="registeration.php">click here </a>
+                            Not register ? <a href="registrasi.php">click here </a>
                         </form>
 
                     </div>

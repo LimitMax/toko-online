@@ -29,12 +29,14 @@ while($tiap = $ambil->fetch_assoc()){
             <td><?= $key+1; ?>.</td>
             <td><?= $value['nama_kategori']; ?></td>
             <td>
-                <a href="" class="btn btn-warning btn-xs">Ubah</a>
-                <a href="" class="btn btn-danger btn-xs">Hapus</a>
+                <a href="index.php?halaman=ubahkategori&id=<?= $value['id_kategori']; ?>"
+                    class="btn btn-warning btn-xs">Edit</a> |
+                <a href="index.php?halaman=hapuskategori&id=<?= $value['id_kategori']; ?>"
+                    onclick="return confirm('Yakin akan menghapus data?')" class="btn btn-danger btn-xs">hapus</a>
             </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
-<a href="" class="btn btn-primary">Tambah Data</a>
+<a href="index.php?halaman=tambahkategori" class="btn btn-primary">Tambah Data</a>

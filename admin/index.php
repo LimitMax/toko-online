@@ -122,7 +122,17 @@ if(!isset($_SESSION['admin'])){
 						elseif($_GET["halaman"] == "laporan_pembelian"){
 							include 'laporan-pembelian.php';
 						}
-						elseif($_GET["halaman"] == "logout"){
+						elseif($_GET["halaman"] == "tambahkategori"){
+							include 'tambahKategori.php';
+						}elseif($_GET["halaman"] == "hapuskategori"){
+							include 'hapusKategori.php';
+						}elseif($_GET["halaman"] == "ubahkategori"){
+							include 'ubahKategori.php';
+						}elseif($_GET["halaman"] == "hapuspelanggan"){
+							include 'hapusPelanggan.php';
+						}elseif($_GET["halaman"] == "prosesRegistrasi"){
+							include 'prosesRegistrasi.php';
+						}elseif($_GET["halaman"] == "logout"){
 							include 'logout.php';
 						}
 
