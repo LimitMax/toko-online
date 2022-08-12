@@ -33,15 +33,15 @@ include 'koneksi.php';
                                 <div class="thumbnail">
                                     <!-- foto -->
                                     <img src="foto_produk/<?= $perproduk['foto_produk']; ?>" alt=""
-                                        style=" width: 250px; height: 250px;">
+                                        style=" width:300px; height: 250px;">
                                     <!-- akhir foto -->
-                                    <div class="caption">
-                                        <h4><b><?= $perproduk['nama_produk']; ?></b></h4>
+                                    <div class=" caption">
+                                        <h3><?= $perproduk['nama_produk']; ?></h3>
                                         <h5>Rp. <?= number_format($perproduk['harga_produk']); ?>,-</h5>
                                         <a href="beli.php?id=<?= $perproduk['id_produk']; ?>"
-                                            class="btn btn-primary">Beli</a>
+                                            class="btn btn-primary">beli</a>
                                         <a href="detail.php?id=<?= $perproduk['id_produk']; ?>"
-                                            class="btn btn-default">Detail</a>
+                                            class="btn btn-default">detail</a>
                                     </div>
                                 </div>
                             </div>
